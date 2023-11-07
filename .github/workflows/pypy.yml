@@ -29,12 +29,10 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.REGISTRY_TOKEN }}
-      - name: List directory structure
-        run: ls -R
       - uses: docker/build-push-action@v4
         with:
-          context: ./yolks/pypy
-          file: ${{ matrix.tag }}/Dockerfile
+          context: ${{ github.workspace }}/yolks/pypy
+          file: ${{ github.workspace }}/yolks/pypy/${{ matrix.tag }}/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
