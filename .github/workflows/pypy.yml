@@ -7,7 +7,7 @@ on:
     branches:
       - master
     paths:
-      - yolks/pypy/**
+      - ./yolks/pypy/**
 jobs:
   push:
     name: "yolks:pypy_${{ matrix.tag }}"
@@ -31,7 +31,7 @@ jobs:
           password: ${{ secrets.REGISTRY_TOKEN }}
       - uses: docker/build-push-action@v4
         with:
-          context: .yolks/pypy
+          context: ./yolks/pypy
           file: ./yolks/pypy/${{ matrix.tag }}/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
