@@ -7,7 +7,7 @@ on:
     branches:
       - master
     paths:
-      - ./yolks/pypy/**
+      - yolks/pypy/**
 jobs:
   push:
     name: "yolks:pypy_${{ matrix.tag }}"
